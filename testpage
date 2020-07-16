@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance</title>
+</head>
+<body>
+    <h1>Test Page</h1>
+        
+    <script>
+        performance.mark('start-loop');
+
+        for (var i = 0; i <= 1000; i++) {
+            console.log('i');
+        }
+
+        performance.mark('end-loop');
+
+        performance.measure('loop-duration', 'start-loop', 'end-loop');
+    </script>
+
+</body>
+</html>
