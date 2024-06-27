@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Payment Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+<form id="fake-payment-form">
+    <h2>Payment Information</h2>
+    <label for="fake-card-number">Card Number:</label>
+    <input type="text" id="fake-card-number" name="card-number" required><br><br>
+    <label for="fake-expiry-date">Expiry Date:</label>
+    <input type="text" id="fake-expiry-date" name="expiry-date" required><br><br>
+    <label for="fake-cvv">CVV:</label>
+    <input type="text" id="fake-cvv" name="cvv" required><br><br>
+    <button type="submit">Submit</button>
+</form>
+<script>
+    document.getElementById('fake-payment-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let cardNumber = document.getElementById('fake-card-number').value;
+        let expiryDate = document.getElementById('fake-expiry-date').value;
+        let cvv = document.getElementById('fake-cvv').value;
+
+        // Send the data to an external server (simulated)
+        console.log('Sending card details to attacker:');
+        console.log('Card Number:', cardNumber);
+        console.log('Expiry Date:', expiryDate);
+        console.log('CVV:', cvv);
+
+        // Remove the fake form after submission and show a confirmation message
+        this.innerHTML = '<p>Payment submitted. Loading original form...</p>';
+
+        // Simulate a delay and then redirect to the original form
+        // setTimeout(() => {
+        //     window.location.href = 'URL_OF_ORIGINAL_FORM_PAGE'; // Redirect to the original form page
+        // }, 2000); // Delay for 2 seconds
+    });
+</script>
+</body>
+</html>
